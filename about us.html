@@ -213,37 +213,11 @@
     z-index: 10;
   }
 
-  /* Rollover image styles */
-  .artist-img,
-  .artist-img-rollover {
+  .artist-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.4s;
-  }
-  .artist-img-rollover {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .artist-card:hover .artist-img-rollover,
-  .artist-card:focus-within .artist-img-rollover {
-    opacity: 1;
-  }
-  .artist-card:hover .artist-img,
-  .artist-card:focus-within .artist-img {
-    opacity: 0;
-  }
-
-  .artist-img {
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   /* Overlay on hover or focus */
@@ -265,7 +239,6 @@
     text-align: center;
     pointer-events: none;
     border-radius: 12px;
-    z-index: 3;
   }
 
   .artist-card:focus-within .artist-overlay,
@@ -307,6 +280,7 @@
     background-color: #ff3366;
     color: #fff;
   }
+
 
   /* Accessibility: Focus outlines */
   a:focus,
@@ -379,10 +353,7 @@
   <h3>At Johnson Records, we are committed to ensure only the best artists from Japan are avaliable for our wonderful viewers in the West Midlands</h3>
   <section class="artist-grid" role="list">
     <article class="artist-card" tabindex="0" role="listitem" aria-labelledby="artist1-name" aria-describedby="artist1-desc">
-      <div style="position:relative; width:100%; height:100%;">
-        <img src="images/14153.jpg" alt="Picture of Survive Said The Prophet" class="artist-img" />
-        <img src="images/14153-rollover.jpg" alt="" class="artist-img-rollover" aria-hidden="true" />
-      </div>
+      <img src="images/14153.jpg" alt="Picture of Survive Said The Prophet" class="artist-img" />
       <div class="artist-overlay">
         <h2 id="artist1-name" class="artist-name">Survive Said The Prophet</h2>
         <p id="artist1-desc" class="artist-info">Creating nothing but amazing hits since 2011, mixing both Japanese and English together in perfect harmony.</p>
@@ -390,10 +361,7 @@
       </div>
     </article>
     <article class="artist-card" tabindex="0" role="listitem" aria-labelledby="artist2-name" aria-describedby="artist2-desc">
-      <div style="position:relative; width:100%; height:100%;">
-        <img src="C:\Users\24003694\Downloads\JohnsonRecord.github.io-main\JohnsonRecord.github.io-main\images\Rollover\spyair-band.png" alt="Portrait of artist SPYAIR" class="artist-img" />
-        <img src="images/spyair-band-rollover.png" alt="" class="artist-img-rollover" aria-hidden="true" />
-      </div>
+      <img src="images/spyair-band.png" alt="Portrait of artist Luna Gray" class="artist-img" />
       <div class="artist-overlay">
         <h2 id="artist2-name" class="artist-name">SPYAIR</h2>
         <p id="artist2-desc" class="artist-info">SPYAIR has been creating catchy music from Nagoya, Japan since 2005</p>
@@ -401,10 +369,7 @@
       </div>
     </article>
     <article class="artist-card" tabindex="0" role="listitem" aria-labelledby="artist3-name" aria-describedby="artist3-desc">
-      <div style="position:relative; width:100%; height:100%;">
-        <img src="images/People_In_The_Box.png" alt="People in the Box image" class="artist-img" />
-        <img src="images/People_In_The_Box-rollover.png" alt="" class="artist-img-rollover" aria-hidden="true" />
-      </div>
+      <img src="images/People_In_The_Box.png" alt="People in the Box image" class="artist-img" />
       <div class="artist-overlay">
         <h2 id="artist3-name" class="artist-name">People In The Box</h2>
         <p id="artist3-desc" class="artist-info">They have been creating masterpieces since their conception in 2003, Fukuoka, Japan</p>
@@ -427,11 +392,16 @@
     // Cart data stored in memory for demo
     let cart = [];
 
-  
+    // Some demo album data for adding to cart (in real life, would come from site)
+    const demoProducts = [
+      { id: 1, name: 'Echoes of Silence Album', price: 12.99 },
+      { id: 2, name: 'Midnight Drive Singles', price: 9.99 },
+      { id: 3, name: 'Alternate Rock Sampler', price: 7.49 }
+    ];
 
     // Function to format price
     function formatPrice(price) {
-      return '£' + price.toFixed(2);
+      return '$' + price.toFixed(2);
     }
 
     // Render cart items
@@ -514,3 +484,4 @@
 </script>
 </body>
 </html>
+
